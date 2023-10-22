@@ -1,4 +1,7 @@
 package com.dulz.guideserver.repo;
 
-public class GuideRepo {
+import com.dulz.guideserver.entity.GuideEntity;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface GuideRepo extends JpaRepository<GuideEntity,String> {
 }

@@ -8,16 +8,13 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 
-public class UserDTO {
-
-    private String UserId;
+public class CustomerDTO {
+    private String CustomerId;
     private String Name;
-    private String NIC;
-    private int Age;
-    private String Gender;
     private String Email;
-    private String ContactNumber;
     private String Address;
-    private String Role;
-
+    private String NIC;
+    private String Username;
+    private String Password;
+    private String ProfilePic;
 }

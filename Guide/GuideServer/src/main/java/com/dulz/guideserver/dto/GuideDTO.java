@@ -1,8 +1,5 @@
-package com.dulz.guideserver.entity;
+package com.dulz.guideserver.dto;
 
-
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,9 +7,8 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-public class GuideEntity {
-    @Id
+
+public class GuideDTO {
     private String guideId;
     private String guideName;
     private String address;
@@ -23,5 +19,4 @@ public class GuideEntity {
     private String guideImage;
     private String nicImage;
     private String GuideIDImage;
-
 }

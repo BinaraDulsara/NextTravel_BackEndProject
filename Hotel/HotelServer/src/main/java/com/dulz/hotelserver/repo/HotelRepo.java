@@ -1,4 +1,8 @@
 package com.dulz.hotelserver.repo;
 
-public class HotelRepo {
+import com.dulz.hotelserver.entity.HotelEntity;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface HotelRepo extends JpaRepository<HotelEntity,String> {
+
 }

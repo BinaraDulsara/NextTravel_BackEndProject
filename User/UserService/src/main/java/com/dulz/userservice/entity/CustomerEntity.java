@@ -1,5 +1,6 @@
 package com.dulz.userservice.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
@@ -10,15 +11,15 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class UserEntity {
+public class CustomerEntity {
     @Id
-    private String UserId;
+    private String CustomerId;
     private String Name;
-    private String NIC;
-    private int Age;
-    private String Gender;
     private String Email;
-    private String ContactNumber;
     private String Address;
-    private String Role;
+    private String NIC;
+    private String Username;
+    private String Password;
+    @Column(columnDefinition = "LONGTEXT")
+    private String ProfilePic;
 }

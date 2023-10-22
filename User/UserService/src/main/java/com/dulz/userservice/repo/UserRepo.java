@@ -1,4 +1,8 @@
 package com.dulz.userservice.repo;
 
-public class UserRepo {
+import com.dulz.userservice.entity.UserEntity;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface UserRepo extends JpaRepository<UserEntity,String> {
+
 }
