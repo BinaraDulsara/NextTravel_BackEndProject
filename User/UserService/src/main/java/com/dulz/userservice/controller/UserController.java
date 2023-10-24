@@ -1,5 +1,6 @@
 package com.dulz.userservice.controller;
 
+import com.dulz.userservice.dto.CustomerDTO;
 import com.dulz.userservice.dto.UserDTO;
 import com.dulz.userservice.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,9 @@ public class UserController {
         userService.saveUser(userDTO);
         return new ResponseEntity<>(userDTO.getUserId()+" User Saved !! ", HttpStatus.OK);
     }
+
+
+
 
     @PutMapping
     public ResponseEntity<String>updateUser(@RequestBody UserDTO userDTO){

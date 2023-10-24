@@ -21,10 +21,11 @@ public class CustomerServiceIMPL implements CustomerService {
     @Autowired
     CustomerRepo customerRepo;
 
+
     @Override
     public void saveCustomer(CustomerDTO customerDTO) {
-        if (customerRepo.existsById(customerDTO.getCustomerId())) {
-            throw new RuntimeException(customerDTO.getCustomerId() + " Customer Id Already Exists !!");
+        if (customerRepo.existsById(customerDTO.getCustomerId())){
+            throw new RuntimeException("Customer ID already exists");
         }
         customerRepo.save(dataConverter.CustomerDTOToCustomerEntity(customerDTO));
     }

@@ -19,7 +19,7 @@ public class VehicleController {
     @PostMapping
     public ResponseEntity<String>saveVehicle(@RequestBody VehicleDTO vehicleDTO){
         vehicleService.saveVehicle(vehicleDTO);
-        return new ResponseEntity<>(vehicleDTO.getVehicleId()+" Vehicle Saved  !! ", HttpStatus.OK);
+        return new ResponseEntity<>(vehicleDTO.getVehicleId()+" Vehicle Saved !! ", HttpStatus.OK);
     }
 
     @PutMapping

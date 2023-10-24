@@ -1,6 +1,8 @@
 package com.dulz.userservice.controller;
 
 import com.dulz.userservice.dto.CustomerDTO;
+import com.dulz.userservice.dto.UserDTO;
+import com.dulz.userservice.entity.CustomerEntity;
 import com.dulz.userservice.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -21,7 +23,7 @@ public class CustomerController {
     @PostMapping
     public ResponseEntity<String>saveCustomer(@RequestBody CustomerDTO customerDTO){
         customerService.saveCustomer(customerDTO);
-        return new ResponseEntity<>(customerDTO.getCustomerId()+" Customer Saved ", HttpStatus.OK);
+        return new ResponseEntity<>(customerDTO.getCustomerId()+" Customer Saved !! ", HttpStatus.OK);
     }
 
     @PutMapping

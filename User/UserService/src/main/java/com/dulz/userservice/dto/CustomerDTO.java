@@ -1,5 +1,6 @@
 package com.dulz.userservice.dto;
 
+import jakarta.persistence.Column;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,12 +10,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 
 public class CustomerDTO {
-    private String CustomerId;
-    private String Name;
-    private String Email;
-    private String Address;
-    private String NIC;
-    private String Username;
-    private String Password;
-    private String ProfilePic;
+    private String customerId;
+    private String name;
+    private String email;
+    private String address;
+    private String nic;
+    private String username;
+    private String password;
+    private String profilePic;
 }

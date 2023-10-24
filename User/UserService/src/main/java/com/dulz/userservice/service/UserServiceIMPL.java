@@ -1,5 +1,6 @@
 package com.dulz.userservice.service;
 
+import com.dulz.userservice.dto.CustomerDTO;
 import com.dulz.userservice.dto.UserDTO;
 import com.dulz.userservice.entity.UserEntity;
 import com.dulz.userservice.repo.UserRepo;
@@ -25,7 +26,7 @@ public class UserServiceIMPL implements UserService{
     @Override
     public void saveUser(UserDTO userDTO) {
         if (userRepo.existsById(userDTO.getUserId())){
-            throw new RuntimeException(userDTO.getUserId()+" User Id Already Exists !! ");
+            throw new RuntimeException(" User ID already exists");
         }
         userRepo.save(dataConverter.UserDTOToUserEntity(userDTO));
     }

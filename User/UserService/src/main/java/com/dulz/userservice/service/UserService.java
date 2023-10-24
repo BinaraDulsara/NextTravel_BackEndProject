@@ -1,5 +1,6 @@
 package com.dulz.userservice.service;
 
+import com.dulz.userservice.dto.CustomerDTO;
 import com.dulz.userservice.dto.UserDTO;
 
 import java.util.List;
