@@ -1,6 +1,7 @@
 package com.dulz.guideserver.service;
 
 import com.dulz.guideserver.dto.GuideDTO;
+import com.dulz.guideserver.entity.GuideEntity;
 import com.dulz.guideserver.repo.GuideRepo;
 import com.dulz.guideserver.util.DataConverter;
 import org.modelmapper.ModelMapper;
@@ -22,7 +23,7 @@ public class GuideServiceIMPL implements GuideService{
     public void saveGuide(GuideDTO guideDTO) {
         if (guideRepo.existsById(guideDTO.getGuideId())){
             throw new RuntimeException(guideDTO.getGuideId() + " Guide Id Already Exists  !! ");
-    }
+        }
         guideRepo.save(dataConverter.guideDTOToguideEntity(guideDTO));
     }
 
@@ -54,6 +55,6 @@ public class GuideServiceIMPL implements GuideService{
 
     @Override
     public List<GuideDTO> getAll() {
-        return dataConverter.guideEntityListToguideDTOList(guideRepo.findAll());
+        return dataConverter.guideEntityListToguideDTOList((List<GuideEntity>) guideRepo.findAll());
     }
 }
