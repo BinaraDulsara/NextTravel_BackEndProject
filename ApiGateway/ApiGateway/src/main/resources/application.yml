@@ -21,5 +21,22 @@ spring:
           predicates:
             - Path=/nextTravelPVTLtdHotelService/**
 
+        - id: vehicle-service
+          uri: lb://VEHICLE-SERVER
+          predicates:
+            - Path=/nextTravelPVTLtdVehicleService/**
 
+        - id: user-service
+          uri: lb://USER-SERVER
+          predicates:
+            - Path=/nextTravelPVTLtdUserService/**
 
+        - id: package-service
+          uri: lb://PACKAGE-SERVER
+          predicates:
+            - Path=/nextTravelPVTLtdPackageService/**
+
+        - id: guide-service
+          uri: lb://GUIDE_SERVER
+          predicates:
+            - Path=/nextTravelPVTLtdGuideService/**

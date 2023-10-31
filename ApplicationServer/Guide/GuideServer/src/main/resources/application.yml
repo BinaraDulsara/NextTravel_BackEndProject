@@ -10,11 +10,11 @@ eureka:
 server:
   port: 9081
   servlet:
-    context-path: /guideService
+    context-path: /nextTravelPVTLtdGuideService
 
 spring:
   data:
     mongodb:
       uri: mongodb://localhost:27017/nextTravelGuideServer
   application:
-    name: GuideService
+    name: GUIDE_SERVER
