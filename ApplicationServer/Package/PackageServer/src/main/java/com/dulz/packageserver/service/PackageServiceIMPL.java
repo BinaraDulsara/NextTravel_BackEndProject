@@ -63,5 +63,20 @@ public class PackageServiceIMPL implements PackageService{
         return dataConverter.packageEntityListToPackageDTOList(packageRepo.findAll());
     }
 
+    @Override
+    public PackageDTO getPackageByPackageCategory(String packageCategory) {
+        return dataConverter.packageEntityToPackageDTO(packageRepo.findPackageByPackageCategory(packageCategory));
+    }
+
+    @Override
+    public int getCountOfPackage() {
+        return packageRepo.getCountOfPackage();
+    }
+
+    @Override
+    public String getLastIndex() {
+        return packageRepo.getLastIndex();
+    }
+
 
 }

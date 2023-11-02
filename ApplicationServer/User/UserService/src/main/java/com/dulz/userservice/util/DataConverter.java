@@ -1,8 +1,6 @@
 package com.dulz.userservice.util;
 
-import com.dulz.userservice.dto.CustomerDTO;
 import com.dulz.userservice.dto.UserDTO;
-import com.dulz.userservice.entity.CustomerEntity;
 import com.dulz.userservice.entity.UserEntity;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
@@ -28,18 +26,5 @@ public class DataConverter {
     public List<UserDTO> UserEntityListToUserDTOList(List<UserEntity> users){
         return modelMapper.map(users,new TypeToken<List<UserDTO>>(){}.getType());
     }
-
-    public CustomerEntity CustomerDTOToCustomerEntity(CustomerDTO customerDTO){
-        return modelMapper.map(customerDTO, CustomerEntity.class);
-    }
-
-    public CustomerDTO CustomerEntityToCustomerDTO(CustomerEntity customerEntity){
-        return modelMapper.map(customerEntity, CustomerDTO.class);
-    }
-
-    public List<CustomerDTO> CustomerEntityListToCustomerDTOList(List<CustomerEntity> customers){
-        return modelMapper.map(customers,new TypeToken<List<CustomerDTO>>(){}.getType());
-    }
-
 
 }

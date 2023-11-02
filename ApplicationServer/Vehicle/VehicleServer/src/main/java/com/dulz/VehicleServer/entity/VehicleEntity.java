@@ -11,36 +11,21 @@ import lombok.NoArgsConstructor;
 @Entity
 public class VehicleEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
     private String vehicleId;
-    @Column(nullable = false)
-    private String vehicleBrand;
-    @Column(nullable = false)
-    private String category;
-    @Column(nullable = false)
-    private String fuelType;
-    @Column(nullable = false)
-    private boolean isHybrid;
-    @Column(nullable = false)
-    private double fuelUsage;
-    @Column(nullable = false,columnDefinition = "LONGTEXT")
-    private String frontView;
-    @Column(nullable = false,columnDefinition = "LONGTEXT")
-    private String rearView;
-    @Column(nullable = false,columnDefinition = "LONGTEXT")
-    private String sideView;
-    @Column(nullable = false,columnDefinition = "LONGTEXT")
-    private String otherSideView;
-    @Column(nullable = false)
-    private int seatCapacity;
-    @Column(nullable = false)
+    private String vehicleRegId;
+    private String vehiclebrand;
+    private String vehicleCategory;
+    private String vehicleFueltype;
+    private String hybridStatus;
+    private int vehicleFuelUsage;
+    private int vehicleSeatCapacity;
     private String vehicleType;
-    @Column(nullable = false)
-    private String transmission;
-    @Column(nullable = false)
-    private String driverName;
-    @Column(nullable = false)
-    private String driverNumber;
-    @Column(nullable = false,columnDefinition = "LONGTEXT")
+    private String transmissionType;
+    private String vehicleDriverName;
+    private String vehicleDriveNumber;
+    @Column(columnDefinition = "LONGTEXT")
     private String driverLicense;
+    @Column(columnDefinition = "LONGTEXT")
+    private String rearView;
+
 }

@@ -45,6 +45,33 @@ public class PackageController {
         return new ResponseEntity<>(packageService.getAll(),HttpStatus.OK);
     }
 
+    //get all package names
+    @GetMapping(path = "/getPackageNameList")
+    public ResponseEntity<List<String>> getPackageNameList(){
+        List<String> packageNameList = null;
+        List<PackageDTO> allPackages = packageService.getAll();
+        for(PackageDTO packageDTO : allPackages){
+            packageNameList.add(packageDTO.getPackageCategory());
+        }
+        return new ResponseEntity<>(packageNameList,HttpStatus.OK);
+    }
+    //get package by package category
+    @GetMapping(params = "packageCategory",path = "getPackageByPackageCategory")
+    public ResponseEntity<PackageDTO> getPackageByPackageCategory(String packageCategory){
+        return new ResponseEntity<>(packageService.getPackageByPackageCategory(packageCategory),HttpStatus.OK);
+    }
+    //get count of packages
+    @GetMapping(path = "/getCountOfPackage")
+    public ResponseEntity<Integer>  getCountOfPackage(){
+        return new ResponseEntity<>(packageService.getCountOfPackage(),HttpStatus.OK);
+    }
+    //get last index of Package id
+    @GetMapping(path = "/getLastId")
+    public ResponseEntity<String> getLastId(){
+        return new ResponseEntity<>(packageService.getLastIndex(),HttpStatus.OK);
+    }
+
+
 
 
 

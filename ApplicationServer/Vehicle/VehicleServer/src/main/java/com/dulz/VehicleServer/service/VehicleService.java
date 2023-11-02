@@ -16,5 +16,14 @@ public interface VehicleService {
 
     List<VehicleDTO> getAll();
 
+    List<VehicleDTO> getAllVehiclesByCategory(String category);
 
+    List<VehicleDTO> getAllVehiclesByCategorySeatCapacityTransmissionTypeFuelType(
+            String category,
+            int seatCapacity,
+            String transmissionType,
+            String fuelType
+    );
+
+    int getCountOfVehicles();
 }

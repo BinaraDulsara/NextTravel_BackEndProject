@@ -16,4 +16,8 @@ public interface HotelService {
 
     List<HotelDTO>getAll();
 
+    List<HotelDTO> getAllHotelsByPackageCategory(String packageCategory);
+    List<HotelDTO> getAllHotelsByHotelCategoryAndStarRateAndLocation(String packageCategory, String starRate,String hotelLocation);
+    String getLastIndex();
+    int getCountOfHotels();
 }

@@ -1,6 +1,7 @@
 package com.dulz.packageserver.controller;
 
 import com.dulz.packageserver.dto.BookDTO;
+import com.dulz.packageserver.dto.BookGetDTO;
 import com.dulz.packageserver.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,29 +18,63 @@ public class BookController {
     BookService bookService;
 
     @PostMapping
-    public ResponseEntity<String>bookSave(@RequestBody BookDTO bookDTO){
+    public ResponseEntity<String> saveBooking(@RequestBody BookDTO bookDTO){
+        System.out.println(bookDTO.getBookingId());
         bookService.saveBook(bookDTO);
-        return new ResponseEntity<>(bookDTO.getBookingId()+ " Book Saved !! ", HttpStatus.OK);
+        return new ResponseEntity<>(bookDTO.getBookingId()+" Book is saved !!", HttpStatus.OK);
     }
 
     @PutMapping
-    public ResponseEntity<String>updateBook(@RequestBody BookDTO bookDTO){
-        bookService.updateBook(bookDTO);
-        return new ResponseEntity<>(bookDTO.getPackageId()+" Book Updated !! ",HttpStatus.OK);
+    public ResponseEntity<String> updateBooking(@RequestBody BookDTO bookDTO) {
+        if (bookService.isValidToUpdate(bookDTO.getBookingId())) {
+            bookService.updateBook(bookDTO);
+            return new ResponseEntity<>(bookDTO.getBookingId() + " Book is Updated..!!", HttpStatus.OK);
+        } else
+            throw new RuntimeException(bookDTO.getBookingId() + " Book is not valid to update..!!");
     }
 
-    @DeleteMapping(params = "id")
-    public ResponseEntity<String>deleteBook(String id){
-        bookService.deleteBook(id);
-        return  new ResponseEntity<>(id+" Book Deleted !!",HttpStatus.OK);
-    }
+
+    @DeleteMapping(params = "Id")
+        public ResponseEntity<String> deleteBooking(String bookingId){
+            bookService.deleteBook(bookingId);
+            return new ResponseEntity<>(bookingId+" Booking is Deleted..!!",HttpStatus.OK);
+        }
 
     @GetMapping(params = "id")
-    public ResponseEntity<BookDTO>findById(String id){
+    public ResponseEntity<BookGetDTO>findById(String id){
         return new ResponseEntity<>(bookService.findById(id),HttpStatus.OK);
     }
+
     @GetMapping
-    public ResponseEntity<List<BookDTO>>getAll(){
+    public ResponseEntity<List<BookGetDTO>>getAll(){
         return new ResponseEntity<>(bookService.getAll(),HttpStatus.OK);
     }
+
+
+    @GetMapping(params = "userId",path = "/getBookingByUserId")
+    public ResponseEntity<BookGetDTO> getBookingByUserId(String userId){
+        return new ResponseEntity<>(bookService.getBookingByUserId(userId),HttpStatus.OK);
+    }
+
+    //get booking ids using user id
+    @GetMapping(params = "userId",path = "/getBookingIdsByUserId")
+    public ResponseEntity<List<String>> getBookingIdsByUserId(String userId){
+        List<String> bookingIds = null;
+        List<BookGetDTO> bookingsByUserId = bookService.getBookingsByUserId(userId);
+        for(BookGetDTO bookingGetDTO : bookingsByUserId){
+            bookingIds.add(bookingGetDTO.getBookingId());
+        }
+        return new ResponseEntity<>(bookingIds,HttpStatus.OK);
+    }
+
+    @GetMapping(path = "/getLastId")
+    public ResponseEntity<String> getLastId(){
+        return new ResponseEntity<>(bookService.getLastIndex(),HttpStatus.OK);
+    }
+
+    @GetMapping(path = "/getCountOfPackage")
+    public ResponseEntity<Integer> getCountOfPackage(){
+        return new ResponseEntity<>(bookService.getCountOfPackage(),HttpStatus.OK);
+    }
+
 }

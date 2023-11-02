@@ -1,4 +1,4 @@
-package com.dulz.userservice.entity;
+package com.dulz.packageserver.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -7,19 +7,19 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class CustomerEntity {
+
+public class PaymentEntity {
     @Id
+    private String bookingId;
     private String customerId;
-    private String name;
-    private String email;
-    private String address;
-    private String nic;
-    private String username;
-    private String password;
+    private Date date;
+    private double price;
     @Column(columnDefinition = "LONGTEXT")
-    private String profilePic;
+    private String paymentSlip;
 }

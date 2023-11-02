@@ -59,5 +59,34 @@ public class HotelServiceIMPL implements HotelService{
         return dataConverter.packageEntityListToPackageDTOList(hotelRepo.findAll());
        }
 
+    @Override
+    public List<HotelDTO> getAllHotelsByPackageCategory(String packageCategory) {
+        if(!hotelRepo.existsByPackageCategory(packageCategory)) {
+            throw new RuntimeException(packageCategory + " Package Category not exists");
+        }
+        return dataConverter.packageEntityListToPackageDTOList(hotelRepo.findAllByPackageCategory(packageCategory));
+    }
+
+    @Override
+    public List<HotelDTO> getAllHotelsByHotelCategoryAndStarRateAndLocation(String packageCategory, String starRate, String hotelLocation) {
+        if (!hotelRepo.existsByStarRate(starRate)){
+            throw new RuntimeException(starRate + " Star Rate Category Not Exists ");
+        }
+        if (!hotelRepo.existsByHotelLocation(hotelLocation)){
+            throw new RuntimeException(hotelLocation + "Hotel Location Not Exists ");
+        }
+        return dataConverter.packageEntityListToPackageDTOList(hotelRepo.findAllByPackageCategoryAndStarRateAndHotelLocation(packageCategory,starRate,hotelLocation));
+    }
+
+    @Override
+    public String getLastIndex() {
+        return hotelRepo.getLastIndex();
+    }
+
+    @Override
+    public int getCountOfHotels() {
+        return hotelRepo.getCountOfHotels();
+    }
+
 
 }

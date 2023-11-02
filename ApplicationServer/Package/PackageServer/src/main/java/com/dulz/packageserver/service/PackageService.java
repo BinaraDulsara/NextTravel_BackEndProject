@@ -16,4 +16,10 @@ public interface PackageService {
 
     List<PackageDTO> getAll();
 
+    PackageDTO getPackageByPackageCategory(String packageCategory);
+
+    int getCountOfPackage();
+
+    String getLastIndex();
+
 }

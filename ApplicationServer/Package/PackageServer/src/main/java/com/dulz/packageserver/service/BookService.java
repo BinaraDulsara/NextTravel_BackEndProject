@@ -1,6 +1,7 @@
 package com.dulz.packageserver.service;
 
 import com.dulz.packageserver.dto.BookDTO;
+import com.dulz.packageserver.dto.BookGetDTO;
 
 import java.util.List;
 
@@ -12,11 +13,16 @@ public interface BookService {
 
     void deleteBook(String id);
 
-    BookDTO findById(String id);
+    BookGetDTO findById(String id);
 
-    List<BookDTO>getAll();
+    List<BookGetDTO>getAll();
 
+    String getLastIndex();
+    BookGetDTO getBookingByUserId(String userId);
 
+    List<BookGetDTO> getBookingsByUserId(String userId);
+    int getCountOfPackage();
+    boolean isValidToUpdate(String bookingId);
 
 
 }

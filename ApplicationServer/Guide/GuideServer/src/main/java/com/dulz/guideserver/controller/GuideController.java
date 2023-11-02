@@ -4,6 +4,7 @@ import com.dulz.guideserver.dto.GuideDTO;
 import com.dulz.guideserver.service.GuideService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
@@ -17,16 +18,16 @@ public class GuideController {
     @Autowired
     GuideService guideService;
 
-    @PostMapping
-    public ResponseEntity<String>saveGuide(@RequestBody GuideDTO guideDTO){
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<String> saveGuide(@RequestBody GuideDTO guideDTO){
         guideService.saveGuide(guideDTO);
-        return new ResponseEntity<>(guideDTO.getGuideId()+ " Guide Saved ", HttpStatus.OK);
+        return new ResponseEntity<>(guideDTO.getGuideId()+" Guide saved !!", HttpStatus.OK);
     }
 
-    @PutMapping
-    public ResponseEntity<String>updateGuide(@RequestBody GuideDTO guideDTO){
+    @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<String> updateGuide(@RequestBody GuideDTO guideDTO){
         guideService.updateGuide(guideDTO);
-        return new ResponseEntity<>(guideDTO.getGuideId()+ " Guide Updated ",HttpStatus.OK);
+        return new ResponseEntity<>(guideDTO.getGuideId()+" Guide updated..!!", HttpStatus.OK);
     }
 
     @DeleteMapping(params = "id")
@@ -43,5 +44,10 @@ public class GuideController {
         return new ResponseEntity<>(guideService.getAll(),HttpStatus.OK);
     }
 
+    //get guide by random
+    @GetMapping(path = "/getGuideByRandom")
+    public ResponseEntity<GuideDTO> getGuideById(){
+        return new ResponseEntity<>(guideService.findById("G001"),HttpStatus.OK);
+    }
 
 }

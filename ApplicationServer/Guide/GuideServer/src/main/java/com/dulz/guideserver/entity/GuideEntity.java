@@ -22,6 +22,6 @@ public class GuideEntity {
     private double manDayValue;
     private String guideImage;
     private String nicImage;
-    private String GuideIDImage;
+    private String guideIDImage;
 
 }

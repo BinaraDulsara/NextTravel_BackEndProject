@@ -1,5 +1,6 @@
 package com.dulz.hotelserver.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
@@ -16,15 +17,17 @@ public class HotelEntity {
         private String hotelLocation;
         private String hotelName;
         private String coordinates;
-        private String roomType;
         private String starRate;
         private String packageCategory;
-        private String hotelContactNumber;
-        private  boolean petsAllowedOrNot;
+        private String hotelContactNumber1;
+        private String hotelContactNumber2;
+        private  String petsAllowedOrNot;
         private  String cancelCriteria;
-        private  String remarks;
         private  double hotelFee;
         private String email;
+        @Column(columnDefinition = "LONGTEXT")
         private String image;
+
+
 
 }

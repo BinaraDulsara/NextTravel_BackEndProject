@@ -4,16 +4,17 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 
-public class PackageDTO {
+public class PaymentDTO {
 
-    private String packageId;
-    private String packageCategory;
-    private int nightCount;
-    private int dayCount;
-    private int totalHeadCount;
+    private String bookingId;
+    private String customerId;
+    private Date date;
     private double price;
+    private String paymentSlip;
 }

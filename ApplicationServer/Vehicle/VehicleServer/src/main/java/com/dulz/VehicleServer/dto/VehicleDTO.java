@@ -10,19 +10,17 @@ import lombok.NoArgsConstructor;
 
 public class VehicleDTO {
     private String vehicleId;
-    private String vehicleBrand;
-    private String category;
-    private String fuelType;
-    private boolean isHybrid;
-    private double fuelUsage;
-    private String frontView;
-    private String rearView;
-    private String sideView;
-    private String otherSideView;
-    private int seatCapacity;
+    private String vehicleRegId;
+    private String vehiclebrand;
+    private String vehicleCategory;
+    private String vehicleFueltype;
+    private String hybridStatus;
+    private int vehicleFuelUsage;
+    private int vehicleSeatCapacity;
     private String vehicleType;
-    private String transmission;
-    private String driverName;
-    private String driverNumber;
+    private String transmissionType;
+    private String vehicleDriverName;
+    private String vehicleDriveNumber;
     private String driverLicense;
+    private String rearView;
 }
